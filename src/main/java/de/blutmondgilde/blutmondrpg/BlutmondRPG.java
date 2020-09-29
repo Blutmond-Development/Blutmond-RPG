@@ -1,5 +1,6 @@
 package de.blutmondgilde.blutmondrpg;
 
+import de.blutmondgilde.blutmondrpg.network.BlutmondNetwork;
 import de.blutmondgilde.blutmondrpg.util.Constants;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -13,9 +14,10 @@ public class BlutmondRPG {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
+    public void setup(final FMLCommonSetupEvent event) {
+        BlutmondNetwork.register(); //Register Network Packets
     }
 
-    private void clientSetup(final FMLClientSetupEvent event) {
+    public void clientSetup(final FMLClientSetupEvent event) {
     }
 }

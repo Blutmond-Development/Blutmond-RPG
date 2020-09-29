@@ -15,11 +15,11 @@ license = "BSD-3-Clause License"
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 # The modid of the mod
-modId = "allucaneat" #mandatory
+modId = "${modId}" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version = "${file.jarVersion}" #mandatory
+version = "${version}" #mandatory
 # A display name for the mod
-displayName = "Example Mod" #mandatory
+displayName = "${displayName}" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 #updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI

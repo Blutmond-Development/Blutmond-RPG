@@ -1,5 +1,8 @@
 package de.blutmondgilde.blutmondrpg.capabilities;
 
+import de.blutmondgilde.blutmondrpg.capabilities.characterclass.CharacterClass;
+import de.blutmondgilde.blutmondrpg.capabilities.characterclass.CharacterClassStorage;
+import de.blutmondgilde.blutmondrpg.capabilities.characterclass.ICharacterClass;
 import net.minecraftforge.common.capabilities.Capability;
 import org.apache.logging.log4j.LogManager;
 import java.util.concurrent.Callable;
@@ -7,7 +10,7 @@ import java.util.concurrent.Callable;
 public class CapabilityManager {
     /** Registers all {@link Capability} classes to the forge capability system */
     public static void register() {
-        
+        register(ICharacterClass.class, CharacterClassStorage::new, CharacterClass::new);
     }
 
     /**

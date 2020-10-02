@@ -1,5 +1,6 @@
 package de.blutmondgilde.blutmondrpg;
 
+import de.blutmondgilde.blutmondrpg.capabilities.CapabilityManager;
 import de.blutmondgilde.blutmondrpg.network.BlutmondNetwork;
 import de.blutmondgilde.blutmondrpg.util.Constants;
 import net.minecraftforge.fml.common.Mod;
@@ -15,7 +16,8 @@ public class BlutmondRPG {
     }
 
     public void setup(final FMLCommonSetupEvent event) {
-        BlutmondNetwork.register(); //Register Network Packets
+        event.enqueueWork(BlutmondNetwork::register); //Register Network Packets
+        event.enqueueWork(CapabilityManager::register); //Register Capabilities
     }
 
     public void clientSetup(final FMLClientSetupEvent event) {

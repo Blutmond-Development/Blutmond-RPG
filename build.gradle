@@ -75,7 +75,8 @@ minecraft {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:' + minecraftVersion + '-' + forgeVersion
-	
+    compile 'org.jetbrains:annotations:16.0.2'
+
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

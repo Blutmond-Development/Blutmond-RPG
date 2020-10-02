@@ -36,6 +36,7 @@ public class CharacterClass implements ICharacterClass {
     /** {@link AttributeModifier} for player {@link Attributes#ARMOR_TOUGHNESS} */
     private double classArmorToughnessModifier;
 
+    /** Default constructor with default values */
     public CharacterClass() {
         this.classType                        = new ResourceLocation(Constants.MOD_ID, "none");
         this.level                            = 1;

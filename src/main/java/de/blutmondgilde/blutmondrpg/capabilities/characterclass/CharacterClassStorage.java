@@ -9,6 +9,7 @@ import net.minecraftforge.common.capabilities.Capability;
 public class CharacterClassStorage implements Capability.IStorage<ICharacterClass> {
     private static final String classType = "classType", level = "level", exp = "exp", classHPModifier = "classHPModifier", classKnockbackResistanceModifier = "classKnockbackResistanceModifier", classMovementSpeedModifier = "classMovementSpeedModifier", classDamageModifier = "classDamageModifier", classKnockbackModifier = "classKnockbackModifier", classAttackSpeedModifier = "classAttackSpeedModifier", classArmorModifier = "classArmorModifier", classArmorToughnessModifier = "classArmorToughnessModifier";
 
+    /** Serialize a {@link Capability} to {@link CompoundNBT} Information */
     @Override
     public INBT writeNBT(Capability<ICharacterClass> capability, ICharacterClass instance, Direction side) {
         CompoundNBT nbt = new CompoundNBT();
@@ -26,6 +27,7 @@ public class CharacterClassStorage implements Capability.IStorage<ICharacterClas
         return nbt;
     }
 
+    /** Reads and writes {@link CompoundNBT} Information to a {@link Capability} instance */
     @Override
     public void readNBT(Capability<ICharacterClass> capability, ICharacterClass instance, Direction side, INBT nbt) {
         CompoundNBT data = (CompoundNBT) nbt;

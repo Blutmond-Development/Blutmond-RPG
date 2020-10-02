@@ -1,14 +1,13 @@
 package de.blutmondgilde.blutmondrpg.capabilities;
 
 import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.fml.common.Mod;
+import org.apache.logging.log4j.LogManager;
 import java.util.concurrent.Callable;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CapabilityManager {
     /** Registers all {@link Capability} classes to the forge capability system */
     public static void register() {
-
+        
     }
 
     /**
@@ -23,5 +22,13 @@ public class CapabilityManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Logs Information at Debug level
+     * @param log Information which should be logged
+     */
+    public static void logDebug(final String log) {
+        LogManager.getLogger("BlutmondRPG/Capabilities").debug(log);
     }
 }

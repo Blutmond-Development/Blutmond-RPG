@@ -3,7 +3,7 @@ package de.blutmondgilde.blutmondrpg.capabilities.characterclass;
 import net.minecraft.util.ResourceLocation;
 
 
-public interface ICharacterClass {
+public interface ICharacterClassCapability {
     ResourceLocation getClassType();
 
     void setClassType(ResourceLocation classType);

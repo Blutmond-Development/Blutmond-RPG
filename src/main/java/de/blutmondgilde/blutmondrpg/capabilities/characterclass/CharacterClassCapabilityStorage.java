@@ -6,12 +6,12 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.capabilities.Capability;
 
-public class CharacterClassStorage implements Capability.IStorage<ICharacterClass> {
+public class CharacterClassCapabilityStorage implements Capability.IStorage<ICharacterClassCapability> {
     private static final String classType = "classType", level = "level", exp = "exp", classHPModifier = "classHPModifier", classKnockbackResistanceModifier = "classKnockbackResistanceModifier", classMovementSpeedModifier = "classMovementSpeedModifier", classDamageModifier = "classDamageModifier", classKnockbackModifier = "classKnockbackModifier", classAttackSpeedModifier = "classAttackSpeedModifier", classArmorModifier = "classArmorModifier", classArmorToughnessModifier = "classArmorToughnessModifier";
 
     /** Serialize a {@link Capability} to {@link CompoundNBT} Information */
     @Override
-    public INBT writeNBT(Capability<ICharacterClass> capability, ICharacterClass instance, Direction side) {
+    public INBT writeNBT(Capability<ICharacterClassCapability> capability, ICharacterClassCapability instance, Direction side) {
         CompoundNBT nbt = new CompoundNBT();
         nbt.putString(classType, instance.getClassType().toString());
         nbt.putInt(level, instance.getLevel());
@@ -29,7 +29,7 @@ public class CharacterClassStorage implements Capability.IStorage<ICharacterClas
 
     /** Reads and writes {@link CompoundNBT} Information to a {@link Capability} instance */
     @Override
-    public void readNBT(Capability<ICharacterClass> capability, ICharacterClass instance, Direction side, INBT nbt) {
+    public void readNBT(Capability<ICharacterClassCapability> capability, ICharacterClassCapability instance, Direction side, INBT nbt) {
         CompoundNBT data = (CompoundNBT) nbt;
 
         instance.setClassType(new ResourceLocation(data.getString(classType)));

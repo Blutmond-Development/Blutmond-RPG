@@ -11,7 +11,7 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import java.util.Optional;
 import java.util.UUID;
 
-public class CharacterClass implements ICharacterClass {
+public class CharacterClassCapability implements ICharacterClassCapability {
     /** {@link ResourceLocation} to identify the CharacterClassType */
     private ResourceLocation classType;
     /** Current player level */
@@ -37,7 +37,7 @@ public class CharacterClass implements ICharacterClass {
     private double classArmorToughnessModifier;
 
     /** Default constructor with default values */
-    public CharacterClass() {
+    public CharacterClassCapability() {
         this.classType                        = new ResourceLocation(Constants.MOD_ID, "none");
         this.level                            = 1;
         this.exp                              = 0;
@@ -142,7 +142,7 @@ public class CharacterClass implements ICharacterClass {
     public static void attachCapability(final AttachCapabilitiesEvent<Entity> e) {
         if (!(e.getObject() instanceof PlayerEntity)) return;
         final PlayerEntity player = (PlayerEntity) e.getObject();
-        e.addCapability(Constants.CAPABILITY_CHARACTER_CLASS, new CharacterClassProvider());
+        e.addCapability(Constants.CAPABILITY_CHARACTER_CLASS, new CharacterClassCapabilityProvider());
 
         Optional<UUID> playerUUID = Optional.of(player.getUniqueID());
         CapabilityManager.logDebug("Attached CharacterClass Capability to player " + playerUUID.map(UUID::toString).orElse("Unknown"));

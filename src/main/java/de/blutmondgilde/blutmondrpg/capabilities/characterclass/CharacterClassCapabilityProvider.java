@@ -10,12 +10,12 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class CharacterClassProvider implements ICapabilitySerializable<INBT> {
+public class CharacterClassCapabilityProvider implements ICapabilitySerializable<INBT> {
     /** {@link MinecraftForge} injects our {@link Capability} Information into this Field */
-    @CapabilityInject(ICharacterClass.class)
-    public static final Capability<ICharacterClass> CAPABILITY = null;
+    @CapabilityInject(ICharacterClassCapability.class)
+    public static final Capability<ICharacterClassCapability> CAPABILITY = null;
     /** Creates the {@link LazyOptional} of our {@link Capability} */
-    private final LazyOptional<ICharacterClass> instance = LazyOptional.of(CAPABILITY::getDefaultInstance);
+    private final LazyOptional<ICharacterClassCapability> instance = LazyOptional.of(CAPABILITY::getDefaultInstance);
 
     /**
      * Returns the {@link LazyOptional} of our {@link Capability} we can get

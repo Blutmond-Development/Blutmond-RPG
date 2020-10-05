@@ -19,5 +19,7 @@ public interface ICharacterClass {
 
     double calculateArmorToughnessModifier(int level);
 
+    double calculateMaxMana(int level);
+
     ITextComponent getDisplayName();
 }

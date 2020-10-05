@@ -50,4 +50,9 @@ public class DefaultCharacterClass extends CharacterClass {
     public double calculateArmorToughnessModifier(int level) {
         return 0;
     }
+
+    @Override
+    public double calculateMaxMana(int level) {
+        return 0;
+    }
 }

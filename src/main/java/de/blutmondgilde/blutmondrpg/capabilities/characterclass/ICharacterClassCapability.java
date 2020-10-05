@@ -55,4 +55,6 @@ public interface ICharacterClassCapability {
     void setMaxMana(double maxMana);
 
     double getMaxMana();
+
+    void recalculateAllModifier();
 }

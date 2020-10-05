@@ -1,6 +1,7 @@
 package de.blutmondgilde.blutmondrpg.capabilities.characterclass;
 
 import de.blutmondgilde.blutmondrpg.capabilities.CapabilityManager;
+import de.blutmondgilde.blutmondrpg.characterclass.CharacterClass;
 import de.blutmondgilde.blutmondrpg.characterclass.CharacterClasses;
 import de.blutmondgilde.blutmondrpg.util.Constants;
 import net.minecraft.entity.Entity;
@@ -9,6 +10,7 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -46,16 +48,16 @@ public class CharacterClassCapability implements ICharacterClassCapability {
         this.classType                        = CharacterClasses.DEFAULT_CLASS.getId();
         this.level                            = 1;
         this.exp                              = 0;
-        this.classHPModifier                  = 1;
-        this.classKnockbackResistanceModifier = 1;
-        this.classMovementSpeedModifier       = 1;
-        this.classDamageModifier              = 1;
-        this.classKnockbackModifier           = 1;
-        this.classAttackSpeedModifier         = 1;
-        this.classArmorModifier               = 1;
-        this.classArmorToughnessModifier      = 1;
-        this.mana                             = 1;
-        this.maxMana                          = 1;
+        this.classHPModifier                  = CharacterClasses.DEFAULT_CLASS.get().calculateHPModifier(this.level);
+        this.classKnockbackResistanceModifier = CharacterClasses.DEFAULT_CLASS.get().calculateKnockbackResistanceModifier(this.level);
+        this.classMovementSpeedModifier       = CharacterClasses.DEFAULT_CLASS.get().calculateMovementSpeedModifier(this.level);
+        this.classDamageModifier              = CharacterClasses.DEFAULT_CLASS.get().calculateDamageModifier(this.level);
+        this.classKnockbackModifier           = CharacterClasses.DEFAULT_CLASS.get().calculateKnockbackModifier(this.level);
+        this.classAttackSpeedModifier         = CharacterClasses.DEFAULT_CLASS.get().calculateAttackSpeedModifier(this.level);
+        this.classArmorModifier               = CharacterClasses.DEFAULT_CLASS.get().calculateArmorModifier(this.level);
+        this.classArmorToughnessModifier      = CharacterClasses.DEFAULT_CLASS.get().calculateArmorToughnessModifier(this.level);
+        this.mana                             = 0;
+        this.maxMana                          = CharacterClasses.DEFAULT_CLASS.get().calculateMaxMana(this.level);
     }
 
     public ResourceLocation getClassType() {
@@ -100,6 +102,21 @@ public class CharacterClassCapability implements ICharacterClassCapability {
     @Override
     public double getMaxMana() {
         return maxMana;
+    }
+
+    @Override
+    public void recalculateAllModifier() {
+        CharacterClass characterClass = GameRegistry.findRegistry(CharacterClass.class).getValue(this.classType);
+
+        this.classHPModifier                  = characterClass.calculateHPModifier(this.level);
+        this.classKnockbackResistanceModifier = characterClass.calculateKnockbackResistanceModifier(this.level);
+        this.classMovementSpeedModifier       = characterClass.calculateMovementSpeedModifier(this.level);
+        this.classDamageModifier              = characterClass.calculateDamageModifier(this.level);
+        this.classKnockbackModifier           = characterClass.calculateKnockbackModifier(this.level);
+        this.classAttackSpeedModifier         = characterClass.calculateAttackSpeedModifier(this.level);
+        this.classArmorModifier               = characterClass.calculateArmorModifier(this.level);
+        this.classArmorToughnessModifier      = characterClass.calculateArmorToughnessModifier(this.level);
+        this.maxMana                          = characterClass.calculateMaxMana(this.level);
     }
 
     public double getClassHPModifier() {
@@ -174,4 +191,6 @@ public class CharacterClassCapability implements ICharacterClassCapability {
         Optional<UUID> playerUUID = Optional.of(player.getUniqueID());
         CapabilityManager.logDebug("Attached CharacterClass Capability to player " + playerUUID.map(UUID::toString).orElse("Unknown"));
     }
+
+
 }

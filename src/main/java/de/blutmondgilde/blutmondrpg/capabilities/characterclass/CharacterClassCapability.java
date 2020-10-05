@@ -1,6 +1,7 @@
 package de.blutmondgilde.blutmondrpg.capabilities.characterclass;
 
 import de.blutmondgilde.blutmondrpg.capabilities.CapabilityManager;
+import de.blutmondgilde.blutmondrpg.characterclass.CharacterClasses;
 import de.blutmondgilde.blutmondrpg.util.Constants;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -38,7 +39,7 @@ public class CharacterClassCapability implements ICharacterClassCapability {
 
     /** Default constructor with default values */
     public CharacterClassCapability() {
-        this.classType                        = new ResourceLocation(Constants.MOD_ID, "none");
+        this.classType                        = CharacterClasses.DEFAULT_CLASS.getId();
         this.level                            = 1;
         this.exp                              = 0;
         this.classHPModifier                  = 1;

@@ -16,7 +16,12 @@ public class BlutmondNetwork {
     /** Protocol version of our Network handler (this should always be 1) */
     private static final String PROTOCOL_VERSION = Integer.toString(1);
     /** Network Channel which is used to send packets from one Side to another */
-    private static final SimpleChannel HANDLER = NetworkRegistry.ChannelBuilder.named(new ResourceLocation(Constants.MOD_ID, "main_channel")).clientAcceptedVersions(PROTOCOL_VERSION::equals).serverAcceptedVersions(PROTOCOL_VERSION::equals).networkProtocolVersion(() -> PROTOCOL_VERSION).simpleChannel();
+    private static final SimpleChannel HANDLER = NetworkRegistry.ChannelBuilder
+            .named(new ResourceLocation(Constants.MOD_ID, "main_channel"))
+            .clientAcceptedVersions(PROTOCOL_VERSION::equals)
+            .serverAcceptedVersions(PROTOCOL_VERSION::equals)
+            .networkProtocolVersion(() -> PROTOCOL_VERSION)
+            .simpleChannel();
 
     /** Method to register the Network Packets. This method is callen in {@link BlutmondRPG#setup(FMLCommonSetupEvent)} */
     public static void register() {

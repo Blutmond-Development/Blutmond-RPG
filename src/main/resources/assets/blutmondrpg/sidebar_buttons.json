@@ -1,0 +1,8 @@
+{
+  "skilltree": {
+    "group": "ftbguilibrary:util",
+    "icon": "blutmondrpg:textures/icons/skilltree.png",
+    "x": 140,
+    "click": "command:/blutmondrpg skilltree"
+  }
+}

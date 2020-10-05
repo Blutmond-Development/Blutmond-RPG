@@ -1,8 +1,16 @@
 package de.blutmondgilde.blutmondrpg.characterclass.classes;
 
+import com.feed_the_beast.mods.ftbguilibrary.icon.Icon;
 import de.blutmondgilde.blutmondrpg.characterclass.CharacterClass;
+import de.blutmondgilde.blutmondrpg.util.Constants;
+import net.minecraft.util.ResourceLocation;
+import java.util.Optional;
 
 public class DefaultCharacterClass extends CharacterClass {
+    public DefaultCharacterClass() {
+        super(Icon.getIcon(new ResourceLocation(Constants.MOD_ID, "textures/icons/none.png")), Optional.empty());
+    }
+
     @Override
     public double calculateHPModifier(int level) {
         return 2;

@@ -47,4 +47,12 @@ public interface ICharacterClassCapability {
     double getClassArmorToughnessModifier();
 
     void setClassArmorToughnessModifier(double classArmorToughnessModifier);
+
+    void setMana(double mana);
+
+    double getMana();
+
+    void setMaxMana(double maxMana);
+
+    double getMaxMana();
 }

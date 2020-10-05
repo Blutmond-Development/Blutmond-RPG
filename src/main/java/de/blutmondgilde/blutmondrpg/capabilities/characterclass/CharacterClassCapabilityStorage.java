@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.capabilities.Capability;
 
 public class CharacterClassCapabilityStorage implements Capability.IStorage<ICharacterClassCapability> {
-    private static final String classType = "classType", level = "level", exp = "exp", classHPModifier = "classHPModifier", classKnockbackResistanceModifier = "classKnockbackResistanceModifier", classMovementSpeedModifier = "classMovementSpeedModifier", classDamageModifier = "classDamageModifier", classKnockbackModifier = "classKnockbackModifier", classAttackSpeedModifier = "classAttackSpeedModifier", classArmorModifier = "classArmorModifier", classArmorToughnessModifier = "classArmorToughnessModifier";
+    private static final String classType = "classType", level = "level", exp = "exp", classHPModifier = "classHPModifier", classKnockbackResistanceModifier = "classKnockbackResistanceModifier", classMovementSpeedModifier = "classMovementSpeedModifier", classDamageModifier = "classDamageModifier", classKnockbackModifier = "classKnockbackModifier", classAttackSpeedModifier = "classAttackSpeedModifier", classArmorModifier = "classArmorModifier", classArmorToughnessModifier = "classArmorToughnessModifier", mana = "mana", maxMana = "maxMana";
 
     /** Serialize a {@link Capability} to {@link CompoundNBT} Information */
     @Override
@@ -24,6 +24,8 @@ public class CharacterClassCapabilityStorage implements Capability.IStorage<ICha
         nbt.putDouble(classAttackSpeedModifier, instance.getClassAttackSpeedModifier());
         nbt.putDouble(classArmorModifier, instance.getClassArmorModifier());
         nbt.putDouble(classArmorToughnessModifier, instance.getClassArmorToughnessModifier());
+        nbt.putDouble(maxMana, instance.getMaxMana());
+        nbt.putDouble(mana, instance.getMana());
         return nbt;
     }
 
@@ -43,5 +45,7 @@ public class CharacterClassCapabilityStorage implements Capability.IStorage<ICha
         instance.setClassAttackSpeedModifier(data.getDouble(classAttackSpeedModifier));
         instance.setClassArmorModifier(data.getDouble(classArmorModifier));
         instance.setClassArmorToughnessModifier(data.getDouble(classArmorToughnessModifier));
+        instance.setMaxMana(data.getDouble(maxMana));
+        instance.setMana(data.getDouble(mana));
     }
 }

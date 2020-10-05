@@ -19,6 +19,10 @@ public class CharacterClassCapability implements ICharacterClassCapability {
     private int level;
     /** Current player exp */
     private double exp;
+    /** Current player mana */
+    private double mana;
+    /** Maximum player mana */
+    private double maxMana;
 
     /** {@link AttributeModifier} for player {@link Attributes#MAX_HEALTH} */
     private double classHPModifier;
@@ -50,6 +54,8 @@ public class CharacterClassCapability implements ICharacterClassCapability {
         this.classAttackSpeedModifier         = 1;
         this.classArmorModifier               = 1;
         this.classArmorToughnessModifier      = 1;
+        this.mana                             = 1;
+        this.maxMana                          = 1;
     }
 
     public ResourceLocation getClassType() {
@@ -74,6 +80,26 @@ public class CharacterClassCapability implements ICharacterClassCapability {
 
     public void setExp(double exp) {
         this.exp = exp;
+    }
+
+    @Override
+    public void setMana(double mana) {
+        this.mana = mana;
+    }
+
+    @Override
+    public double getMana() {
+        return mana;
+    }
+
+    @Override
+    public void setMaxMana(double maxMana) {
+        this.maxMana = maxMana;
+    }
+
+    @Override
+    public double getMaxMana() {
+        return maxMana;
     }
 
     public double getClassHPModifier() {

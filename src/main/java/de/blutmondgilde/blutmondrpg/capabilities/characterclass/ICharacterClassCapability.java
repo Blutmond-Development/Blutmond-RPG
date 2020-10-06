@@ -57,4 +57,8 @@ public interface ICharacterClassCapability {
     double getMaxMana();
 
     void recalculateAllModifier();
+
+    void setMagicDamageModifier(double damage);
+
+    double getMagicDamageModifier();
 }

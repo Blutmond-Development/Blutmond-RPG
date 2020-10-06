@@ -25,6 +25,8 @@ public class CharacterClassCapability implements ICharacterClassCapability {
     private double mana;
     /** Maximum player mana */
     private double maxMana;
+    /** Magic Damage */
+    private double magicDamage;
 
     /** {@link AttributeModifier} for player {@link Attributes#MAX_HEALTH} */
     private double classHPModifier;
@@ -117,6 +119,16 @@ public class CharacterClassCapability implements ICharacterClassCapability {
         this.classArmorModifier               = characterClass.calculateArmorModifier(this.level);
         this.classArmorToughnessModifier      = characterClass.calculateArmorToughnessModifier(this.level);
         this.maxMana                          = characterClass.calculateMaxMana(this.level);
+    }
+
+    @Override
+    public void setMagicDamageModifier(double damageModifier) {
+        this.magicDamage = damageModifier;
+    }
+
+    @Override
+    public double getMagicDamageModifier() {
+        return this.magicDamage;
     }
 
     public double getClassHPModifier() {

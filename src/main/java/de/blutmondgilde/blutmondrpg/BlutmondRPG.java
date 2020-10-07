@@ -3,6 +3,7 @@ package de.blutmondgilde.blutmondrpg;
 import de.blutmondgilde.blutmondrpg.capabilities.CapabilityManager;
 import de.blutmondgilde.blutmondrpg.capabilities.characterclass.CharacterClassCapability;
 import de.blutmondgilde.blutmondrpg.characterclass.CharacterClasses;
+import de.blutmondgilde.blutmondrpg.commands.CommandHandler;
 import de.blutmondgilde.blutmondrpg.network.BlutmondNetwork;
 import de.blutmondgilde.blutmondrpg.util.Constants;
 import net.minecraft.entity.Entity;
@@ -23,7 +24,7 @@ public class BlutmondRPG {
 
         final IEventBus forgeBus = MinecraftForge.EVENT_BUS; // Gets Minecraft Forge Event Bus
         forgeBus.addGenericListener(Entity.class, CharacterClassCapability::attachCapability); // Register Capability CharacterClass
-
+        forgeBus.addListener(CommandHandler::registerCommands); // Register Commands
 
     }
 

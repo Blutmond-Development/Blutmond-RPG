@@ -55,4 +55,9 @@ public class PriestCharacterClass extends CharacterClass {
     public double calculateMaxMana(int level) {
         return 20 + level * 8;
     }
+
+    @Override
+    public double calculateMagicDamageModifier(int level) {
+        return 3.5D + level / 2.0D;
+    }
 }

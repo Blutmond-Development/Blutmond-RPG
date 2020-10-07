@@ -55,4 +55,9 @@ public class ScoutCharacterClass extends CharacterClass {
     public double calculateMaxMana(int level) {
         return 10 + level * 2;
     }
+
+    @Override
+    public double calculateMagicDamageModifier(int level) {
+        return 1.5D;
+    }
 }

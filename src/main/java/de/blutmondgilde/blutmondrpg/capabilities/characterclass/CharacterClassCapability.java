@@ -60,6 +60,7 @@ public class CharacterClassCapability implements ICharacterClassCapability {
         this.classArmorToughnessModifier      = CharacterClasses.DEFAULT_CLASS.get().calculateArmorToughnessModifier(this.level);
         this.mana                             = 0;
         this.maxMana                          = CharacterClasses.DEFAULT_CLASS.get().calculateMaxMana(this.level);
+        this.magicDamage                      = CharacterClasses.DEFAULT_CLASS.get().calculateMagicDamageModifier(this.level);
     }
 
     public ResourceLocation getClassType() {
@@ -108,7 +109,7 @@ public class CharacterClassCapability implements ICharacterClassCapability {
 
     @Override
     public void recalculateAllModifier() {
-        CharacterClass characterClass = GameRegistry.findRegistry(CharacterClass.class).getValue(this.classType);
+        final CharacterClass characterClass = GameRegistry.findRegistry(CharacterClass.class).getValue(this.classType);
 
         this.classHPModifier                  = characterClass.calculateHPModifier(this.level);
         this.classKnockbackResistanceModifier = characterClass.calculateKnockbackResistanceModifier(this.level);
@@ -119,6 +120,8 @@ public class CharacterClassCapability implements ICharacterClassCapability {
         this.classArmorModifier               = characterClass.calculateArmorModifier(this.level);
         this.classArmorToughnessModifier      = characterClass.calculateArmorToughnessModifier(this.level);
         this.maxMana                          = characterClass.calculateMaxMana(this.level);
+        this.mana                             = this.maxMana;
+        this.magicDamage                      = characterClass.calculateMagicDamageModifier(this.level);
     }
 
     @Override

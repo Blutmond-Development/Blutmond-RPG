@@ -55,4 +55,9 @@ public class MageCharacterClass extends CharacterClass {
     public double calculateMaxMana(int level) {
         return 20 + level * 5;
     }
+
+    @Override
+    public double calculateMagicDamageModifier(int level) {
+        return 4.0D + level / 2.0D;
+    }
 }

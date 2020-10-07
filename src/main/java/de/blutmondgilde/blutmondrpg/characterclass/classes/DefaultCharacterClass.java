@@ -55,4 +55,9 @@ public class DefaultCharacterClass extends CharacterClass {
     public double calculateMaxMana(int level) {
         return 0;
     }
+
+    @Override
+    public double calculateMagicDamageModifier(int level) {
+        return 0;
+    }
 }

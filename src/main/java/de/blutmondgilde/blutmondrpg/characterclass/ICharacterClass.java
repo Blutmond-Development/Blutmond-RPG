@@ -21,5 +21,7 @@ public interface ICharacterClass {
 
     double calculateMaxMana(int level);
 
+    double calculateMagicDamageModifier(int level);
+
     ITextComponent getDisplayName();
 }

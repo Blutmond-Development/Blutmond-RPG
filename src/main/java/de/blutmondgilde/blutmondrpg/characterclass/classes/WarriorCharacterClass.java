@@ -55,4 +55,9 @@ public class WarriorCharacterClass extends CharacterClass {
     public double calculateMaxMana(int level) {
         return level * 2;
     }
+
+    @Override
+    public double calculateMagicDamageModifier(int level) {
+        return 0;
+    }
 }

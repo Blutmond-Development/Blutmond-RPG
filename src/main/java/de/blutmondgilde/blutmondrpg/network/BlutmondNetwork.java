@@ -1,6 +1,8 @@
 package de.blutmondgilde.blutmondrpg.network;
 
 import de.blutmondgilde.blutmondrpg.BlutmondRPG;
+import de.blutmondgilde.blutmondrpg.network.packets.OpenSkilltreePacket;
+import de.blutmondgilde.blutmondrpg.network.packets.SyncCharacterClassCapability;
 import de.blutmondgilde.blutmondrpg.util.Constants;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -26,7 +28,12 @@ public class BlutmondNetwork {
     /** Method to register the Network Packets. This method is callen in {@link BlutmondRPG#setup(FMLCommonSetupEvent)} */
     public static void register() {
         int disc = 0;
-
+        HANDLER.registerMessage(disc++, OpenSkilltreePacket.class, OpenSkilltreePacket::encode, OpenSkilltreePacket::decode, OpenSkilltreePacket::handle);
+        HANDLER.registerMessage(disc++,
+                                SyncCharacterClassCapability.class,
+                                SyncCharacterClassCapability::encode,
+                                SyncCharacterClassCapability::decode,
+                                SyncCharacterClassCapability::handle);
     }
 
     /**

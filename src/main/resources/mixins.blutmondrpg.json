@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "de.blutmondgilde.blutmondrpg.core.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "mixins.blutmondrpg.refmap.json",
+  "mixins": [
+    "MixinEntity"
+  ],
+  "server": [],
+  "client": [],
+  "minVersion": "0.8"
+}

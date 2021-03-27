@@ -1,0 +1,15 @@
+{
+  "blutmondrpg.race.human": "Human",
+  "blutmondrpg.race.none": "None",
+  "blutmondrpg.race.asura": "Asura",
+  "blutmondrpg.race.sylvari": "Sylvari",
+  "blutmondrpg.race.norn": "Norn",
+  "blutmondrpg.race.charr": "Charr",
+  "blutmondrpg.commands.exceptions.unknown_race": "Unknown race '%s'",
+  "blutmondrpg.commands.feedback.race.info": "Your current race is %s.",
+  "blutmondrpg.commands.feedback.race.info.other": "%s current race is %s.",
+  "blutmondrpg.commands.feedback.setup.race.already": "You already setup your race.",
+  "blutmondrpg.commands.feedback.set.race": "You changed your race to %s.",
+  "blutmondrpg.commands.feedback.set.race.other": "You changed %s race to %s.",
+  "blutmondrpg.gui.chooseracegui.title": "Choose Race..."
+}
